@@ -6,7 +6,10 @@ const db = require("./db/db");
 dotenv.config();
 db();
 corst = require("cors");
-app.use(corst());
+app.use(corst({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 // built-in middleware to parse JSON and urlencoded request bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
