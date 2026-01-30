@@ -7,8 +7,8 @@ dotenv.config();
 db();
 corst = require("cors");
 app.use(corst({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "https://portfolio-project-git-main-siddrizwan518-3868s-projects.vercel.app/",
+    method :["POST"]
 }));
 // built-in middleware to parse JSON and urlencoded request bodies
 app.use(express.json());
