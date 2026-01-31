@@ -5,11 +5,15 @@ const route = require("../src/route/user.route");
 const db = require("./db/db");
 dotenv.config();
 db();
-corst = require("cors");
-app.use(corst({
-    origin: "https://portfolio-project-git-main-siddrizwan518-3868s-projects.vercel.app/",
-    method :["POST"]
-}));
+const cors = require("cors");
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
+  }),
+);
 // built-in middleware to parse JSON and urlencoded request bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
